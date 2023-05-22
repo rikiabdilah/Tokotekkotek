@@ -1,7 +1,8 @@
-package com.example.tokotekkotek.view.fragment
+package com.example.tokotekkotek.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.tokotekkotek.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

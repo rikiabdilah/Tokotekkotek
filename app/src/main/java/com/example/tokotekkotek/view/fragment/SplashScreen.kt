@@ -45,7 +45,7 @@ class SplashScreen : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment SplashScreen.
+         * @return A new instance of fragment SplashScreenFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
