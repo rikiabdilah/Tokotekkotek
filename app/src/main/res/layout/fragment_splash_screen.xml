@@ -3,16 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="30dp"
+    android:background="#77FF95"
     tools:context=".view.fragment.SplashScreen">
 
-    <TextView
-        android:id="@+id/txtSplash"
-        android:text="@string/txt_splash"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerInParent="true">
+        <TextView
+            android:text="TOKOTEK"
+            android:textSize="28sp"
+            android:fontFamily="@font/poppins_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"/>
+        <TextView
+            android:text="KOTEK"
+            android:textSize="28sp"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"/>
+    </LinearLayout>
 
 </RelativeLayout>
