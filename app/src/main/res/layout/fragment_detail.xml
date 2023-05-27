@@ -1,143 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.fragment.DetailFragment">
-    <ScrollView
+<layout>
+    <data>
+        <variable
+            name="detailProduct"
+            type="com.example.tokotekkotek.model.ResponseDataProductItem" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bottomLayout"
-        android:orientation="vertical">
-        <LinearLayout
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".view.fragment.DetailFragment">
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/bottomLayout"
             android:orientation="vertical">
-            <ImageView
-                android:id="@+id/imgDetailProduct"
-                android:layout_width="match_parent"
-                android:layout_height="320dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_launcher_background"/>
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp">
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/imgDetailProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="360dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_background"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp">
+                    <TextView
+                        android:id="@+id/tvPriceProduct"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{String.valueOf(detailProduct.price)}"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textSize="24sp"
+                        android:textColor="@color/black"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        />
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_favorite"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:background="@color/white"
+                        android:minWidth="48dp"
+                        android:minHeight="48dp"
+                        android:contentDescription="btn favorite"
+                        />
+                </RelativeLayout>
                 <TextView
-                    android:id="@+id/tvPriceProduct"
+                    android:id="@+id/tvNameProduct"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rp50.000"
+                    android:text="@{detailProduct.name}"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="18sp"
+                    android:textColor="#555555"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:background="#F0F0F0"
+                    android:layout_marginTop="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Description product"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
                     android:fontFamily="@font/poppins_semibold"
-                    android:textSize="24sp"
-                    android:textColor="@color/black"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:id="@+id/tvDescriptionProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:text="@{detailProduct.description}"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textSize="16sp"
+                    android:textAlignment="textStart"
                     />
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_favorite"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:background="@color/white"
-                    android:minWidth="48dp"
-                    android:minHeight="48dp"
-                    android:contentDescription="btn favorite"
-                    />
-            </RelativeLayout>
-            <TextView
-                android:id="@+id/tvNameProduct"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Mouse Wirelless ROBOT M200"
-                android:fontFamily="@font/poppins_medium"
-                android:textSize="18sp"
-                android:textColor="#555555"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp"
-                />
-            <View
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:background="#F0F0F0"
+                    android:layout_marginTop="8dp"/>
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout
+            android:id="@+id/bottomLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:background="#F0F0F0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <Button
+                android:id="@+id/btnBuyNow"
                 android:layout_width="match_parent"
-                android:layout_height="4dp"
-                android:background="#F0F0F0"
-                android:layout_marginTop="8dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Description product"
-                android:layout_marginTop="12dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp"
-                android:fontFamily="@font/poppins_semibold"
-                android:textSize="18sp"
-                android:textColor="@color/black"/>
-            <TextView
-                android:id="@+id/tvDescriptionProduct"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="4dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp"
-                android:text="Play it loud everywhere life takes you. Get the earphones that deliver amazing gaming audio performance, from the desktop to wherever you want to go"
-                android:fontFamily="@font/poppins_regular"
+                android:layout_weight="1"
+                android:text="buy now"
                 android:textSize="16sp"
-                android:textAlignment="textStart"
-                />
-            <View
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="#5CFF6D"
+                android:layout_margin="8dp"
+                app:strokeColor = "#5CFF6D"
+                app:layout_constraintBottom_toTopOf="@id/bottomLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginBottom="8dp"
+                style="@style/Widget.Material3.Button.OutlinedButton"/>
+            <Button
+                android:id="@+id/btnAddToCart"
                 android:layout_width="match_parent"
-                android:layout_height="4dp"
-                android:background="#F0F0F0"
-                android:layout_marginTop="8dp"/>
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="add to cart"
+                android:textSize="16sp"
+                android:backgroundTint="#5CFF6D"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/white"
+                android:layout_margin="8dp"
+                app:layout_constraintBottom_toTopOf="@id/bottomLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginBottom="8dp"
+                style="@style/Widget.Material3.Button.ElevatedButton"/>
         </LinearLayout>
-    </ScrollView>
-    <LinearLayout
-        android:id="@+id/bottomLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="4dp"
-        android:background="#F0F0F0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
-        <Button
-            android:id="@+id/btnBuyNow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="buy now"
-            android:textSize="20sp"
-            android:backgroundTint="@color/white"
-            android:fontFamily="@font/poppins_medium"
-            android:textColor="#5CFF6D"
-            android:layout_margin="8dp"
-            app:strokeColor = "#5CFF6D"
-            app:layout_constraintBottom_toTopOf="@id/bottomLayout"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginBottom="8dp"
-            style="@style/Widget.Material3.Button.OutlinedButton"/>
-        <Button
-            android:id="@+id/btnAddToCart"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="add to cart"
-            android:textSize="20sp"
-            android:backgroundTint="#5CFF6D"
-            android:fontFamily="@font/poppins_medium"
-            android:textColor="@color/white"
-            android:layout_margin="8dp"
-            app:layout_constraintBottom_toTopOf="@id/bottomLayout"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginBottom="8dp"
-            style="@style/Widget.Material3.Button.ElevatedButton"/>
-    </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

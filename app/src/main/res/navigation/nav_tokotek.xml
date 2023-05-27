@@ -3,40 +3,76 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_tokotek"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/splashScreen"
         android:name="com.example.tokotekkotek.view.fragment.SplashScreen"
         android:label="fragment_splash_screen"
         tools:layout="@layout/fragment_splash_screen" >
+        <!--        manambahkan popupto dan popupinclusive sehingga ketika diback ke splashscreen langsung menutup-->
         <action
             android:id="@+id/action_splashScreen_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/splashScreen"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.tokotekkotek.view.fragment.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_loginFragment_to_registFragment"
+            app:destination="@id/registFragment" />
     </fragment>
     <fragment
         android:id="@+id/registFragment"
         android:name="com.example.tokotekkotek.view.fragment.RegistFragment"
         android:label="fragment_regist"
         tools:layout="@layout/fragment_regist" >
+        <action
+            android:id="@+id/action_registFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.tokotekkotek.view.fragment.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_detailNewsFragment"
+            app:destination="@id/detailNewsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_historyTransactionFragment"
+            app:destination="@id/historyTransactionFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_keranjangFragment"
+            app:destination="@id/keranjangFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.tokotekkotek.view.fragment.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.tokotekkotek.view.fragment.DetailFragment"
@@ -49,6 +85,9 @@
         android:label="fragment_favorite"
         tools:layout="@layout/fragment_favorite" >
         <action
+            android:id="@+id/action_favoriteFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
             android:id="@+id/action_favoriteFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
     </fragment>
@@ -56,5 +95,23 @@
         android:id="@+id/keranjangFragment"
         android:name="com.example.tokotekkotek.view.fragment.KeranjangFragment"
         android:label="fragment_keranjang"
-        tools:layout="@layout/fragment_keranjang" />
+        tools:layout="@layout/fragment_keranjang" >
+        <action
+            android:id="@+id/action_keranjangFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/historyTransactionFragment"
+        android:name="com.example.tokotekkotek.view.fragment.HistoryTransactionFragment"
+        android:label="fragment_history_transaction"
+        tools:layout="@layout/fragment_history_transaction" >
+        <action
+            android:id="@+id/action_historyTransactionFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailNewsFragment"
+        android:name="com.example.tokotekkotek.view.fragment.DetailNewsFragment"
+        android:label="fragment_detail_news"
+        tools:layout="@layout/fragment_detail_news" />
 </navigation>

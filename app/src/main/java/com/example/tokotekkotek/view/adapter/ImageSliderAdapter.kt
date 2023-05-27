@@ -7,7 +7,7 @@ import com.bumptech.glide.Glide
 import com.example.tokotekkotek.databinding.ItemImageSlideBinding
 import com.example.tokotekkotek.model.ResponseDataSlidersItem
 
-class ImageSliderAdapter(private val list : List<ResponseDataSlidersItem>) : RecyclerView.Adapter<ImageSliderAdapter.ViewHolder>(){
+class ImageSliderAdapter(private var list : List<ResponseDataSlidersItem>) : RecyclerView.Adapter<ImageSliderAdapter.ViewHolder>(){
 
     class ViewHolder(var binding : ItemImageSlideBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindItem(item : ResponseDataSlidersItem){
@@ -30,6 +30,11 @@ class ImageSliderAdapter(private val list : List<ResponseDataSlidersItem>) : Rec
 
     override fun getItemCount(): Int {
         return list.size
+    }
+
+    fun setDataListSlider(listData : List<ResponseDataSlidersItem>){
+        list = listData
+        notifyDataSetChanged()
     }
 
 }

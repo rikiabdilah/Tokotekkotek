@@ -7,9 +7,9 @@ import javax.inject.Inject
 
 interface LocalRepository {
     suspend fun getFavoriteCart(username: String): List<FavoriteEntity>
-    suspend fun isFavorite(id_barang: Int, uuid_user: String): Boolean
+    suspend fun isFavorite(id_barang: Int, username: String): Boolean
     suspend fun addFavorite(favoriteEntity: FavoriteEntity)
-    suspend fun deleteFavorite(id_barang: Int, uuid_user: String)
+    suspend fun deleteFavorite(id_barang: Int, username: String)
 }
 
 class LocalRepositoryImpl @Inject constructor(private val favoriteDao: FavoriteDao) :

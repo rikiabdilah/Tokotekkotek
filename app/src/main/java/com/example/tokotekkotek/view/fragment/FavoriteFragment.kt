@@ -10,7 +10,9 @@ import com.example.tokotekkotek.R
 import com.example.tokotekkotek.databinding.FragmentFavoriteBinding
 import com.example.tokotekkotek.view.adapter.FavoriteAdapter
 import com.example.tokotekkotek.viewmodel.FavoriteViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FavoriteFragment : Fragment() {
 
     private var _binding : FragmentFavoriteBinding? = null

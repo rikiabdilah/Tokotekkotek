@@ -3,6 +3,7 @@ package com.example.tokotekkotek.view.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.tokotekkotek.databinding.ItemProductBinding
 import com.example.tokotekkotek.model.ResponseDataProductItem
 
@@ -27,6 +28,14 @@ class NewProductAdapter(private var list : List<ResponseDataProductItem>) : Recy
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindProduct(list[position])
+
+        Glide.with(holder.itemView)
+            .load(list[position].productImage)
+            .into(holder.binding.imgProduct)
+
+        holder.binding.itemCardProduct.setOnClickListener {
+            onClickItemNewProduct?.invoke(list[position])
+        }
     }
 
     fun setDataListNewProduct(listProduct : List<ResponseDataProductItem>){

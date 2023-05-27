@@ -10,7 +10,8 @@
         android:layout_height="wrap_content"
         xmlns:app="http://schemas.android.com/apk/res-auto">
         <androidx.cardview.widget.CardView
-            android:layout_width="120dp"
+            android:id="@+id/itemCardNews"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             app:cardCornerRadius="8dp"
@@ -38,6 +39,7 @@
                         android:textSize="14sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="@color/black"
+                        android:maxLength="25"
                         />
                     <TextView
                         android:id="@+id/tvDateNews"

@@ -73,7 +73,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etUnameReg"
+                android:id="@+id/etEmailReg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textWebEmailAddress"
@@ -109,7 +109,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/btn_register"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:backgroundTint="#5CFF6D"
         android:fontFamily="@font/poppins_medium"
         android:textColor="@color/white"

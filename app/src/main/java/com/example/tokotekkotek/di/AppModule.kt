@@ -4,6 +4,9 @@ import android.content.Context
 import androidx.room.Room
 import com.example.tokotekkotek.data.local.AppDatabase
 import com.example.tokotekkotek.data.local.dao.FavoriteDao
+import com.example.tokotekkotek.repository.NetworkRepository
+import com.example.tokotekkotek.repository.NetworkRepositoryImpl
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,4 +30,6 @@ object AppModule {
     @Provides
     fun provideFavoriteDao(appDatabase: AppDatabase): FavoriteDao =
         appDatabase.favoriteDao()
+
+
 }

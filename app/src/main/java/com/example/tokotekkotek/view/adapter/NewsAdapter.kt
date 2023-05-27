@@ -3,6 +3,7 @@ package com.example.tokotekkotek.view.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.tokotekkotek.databinding.ItemNewsBinding
 import com.example.tokotekkotek.model.ResponseNewsUpdateItem
 
@@ -14,7 +15,6 @@ class NewsAdapter(private var list : List<ResponseNewsUpdateItem>) : RecyclerVie
         fun bindItem(item : ResponseNewsUpdateItem){
             binding.itemNews = item
 
-            //dipasang glide untuk gambar online
         }
     }
 
@@ -25,6 +25,14 @@ class NewsAdapter(private var list : List<ResponseNewsUpdateItem>) : RecyclerVie
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindItem(list[position])
+
+        Glide.with(holder.itemView)
+            .load(list[position].newsImage)
+            .into(holder.binding.imgNews)
+
+        holder.binding.itemCardNews.setOnClickListener {
+            onClickItemNews?.invoke(list[position])
+        }
     }
 
     override fun getItemCount(): Int {
