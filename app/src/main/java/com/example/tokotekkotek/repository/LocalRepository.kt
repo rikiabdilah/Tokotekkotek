@@ -10,6 +10,7 @@ interface LocalRepository {
     suspend fun isFavorite(id_barang: Int, username: String): Boolean
     suspend fun addFavorite(favoriteEntity: FavoriteEntity)
     suspend fun deleteFavorite(id_barang: Int, username: String)
+
 }
 
 class LocalRepositoryImpl @Inject constructor(private val favoriteDao: FavoriteDao) :

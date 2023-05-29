@@ -1,184 +1,217 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.fragment.ProfileFragment"
-    android:background="#ECE9E9">
-
-    <TextView
-        android:id="@+id/titlePage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Profile"
-        android:textColor="@color/black"
-        android:fontFamily="@font/poppins_semibold"
-        android:textSize="20sp"
-        android:layout_margin="14dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
-
-    <View
-        android:id="@+id/grid"
+<layout>
+    <data>
+        <variable
+            name="user"
+            type="com.example.tokotekkotek.model.ResponseDataUserItem"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="6dp"
-        android:background="#F0F0F0"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/titlePage"
-        />
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:cardCornerRadius="12dp"
-        app:cardElevation="2dp"
-        app:layout_constraintTop_toBottomOf="@id/grid"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-        <RelativeLayout
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".view.fragment.ProfileFragment"
+        android:background="#ECE9E9">
+
+        <TextView
+            android:id="@+id/titlePage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profile"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="20sp"
+            android:layout_margin="14dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <View
+            android:id="@+id/grid"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <LinearLayout
-                android:id="@+id/topLayot"
+            android:layout_height="6dp"
+            android:background="#F0F0F0"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/titlePage"
+            />
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:layout_constraintTop_toBottomOf="@id/grid"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_margin="36dp"
-                android:layout_centerInParent="true"
-                android:gravity="center">
-                <ImageView
-                    android:id="@+id/imgProfile"
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_launcher_background"
-                    />
+                android:layout_height="match_parent">
                 <LinearLayout
+                    android:id="@+id/topLayot"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:orientation="vertical">
-                    <TextView
-                        android:id="@+id/tvName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="nama user"
-                        android:fontFamily="@font/poppins_medium"
-                        android:textSize="16sp"
-                        android:textColor="@color/black"
+                    android:orientation="horizontal"
+                    android:layout_margin="36dp"
+                    android:layout_centerInParent="true"
+                    android:gravity="center">
+                    <ImageView
+                        android:id="@+id/imgProfile"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_launcher_background"
                         />
-                    <TextView
-                        android:id="@+id/tvEmail"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="namauser@gmail.com"
-                        android:fontFamily="@font/poppins_regular"
-                        android:textSize="14sp"
-                        android:textColor="@color/black"
-                        />
+                        android:layout_marginStart="12dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/tvName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{user.name}"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            />
+                        <TextView
+                            android:id="@+id/tvEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{user.email}"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            />
+                    </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
 
-            <ImageButton
-                android:id="@+id/btnEditProfile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/topLayot"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:background="@color/white"
-                android:contentDescription="btn edit"
-                android:minWidth="48dp"
-                android:minHeight="48dp"
-                android:src="@drawable/ic_edit"
-                app:tint="@color/black" />
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+                <ImageButton
+                    android:id="@+id/btnEditProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/topLayot"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/white"
+                    android:contentDescription="btn edit"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    android:src="@drawable/ic_edit"
+                    app:tint="@color/black" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
 
-    <RelativeLayout
-        android:id="@+id/logoutLanguage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:layout_marginBottom="14dp"
-        app:layout_constraintBottom_toTopOf="@id/logoutLayout"
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           app:layout_constraintBottom_toBottomOf="parent">
+           <Button
+               android:id="@+id/btnLogin"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_weight="1"
+               android:text="login"
+               android:textSize="16sp"
+               android:backgroundTint="#5CFF6D"
+               android:fontFamily="@font/poppins_medium"
+               android:textColor="@color/white"
+               android:layout_margin="8dp"
+               app:layout_constraintBottom_toTopOf="@id/bottomLayout"
+               app:layout_constraintStart_toStartOf="parent"
+               android:layout_marginBottom="8dp"
+               style="@style/Widget.Material3.Button.ElevatedButton"/>
+           <LinearLayout
+               android:id="@+id/layoutButton"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:visibility="gone">
+               <RelativeLayout
+                   android:id="@+id/chooseLanguage"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:background="@color/white"
+                   android:layout_marginBottom="14dp"
+                   app:layout_constraintBottom_toTopOf="@id/logout"
+                   >
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_alignParentStart="true"
+                       android:layout_centerVertical="true"
+                       android:layout_marginStart="20dp"
+                       android:layout_marginTop="12dp"
+                       android:layout_marginEnd="20dp"
+                       android:layout_marginBottom="12dp"
+                       android:fontFamily="@font/poppins_medium"
+                       android:text="change language"
+                       android:textColor="#9A9A9A"
+                       android:textSize="18sp" />
 
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="change language"
-            android:textColor="#9A9A9A"
-            android:textSize="18sp" />
+                   <ImageButton
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_alignParentEnd="true"
+                       android:layout_centerVertical="true"
+                       android:layout_marginStart="8dp"
+                       android:layout_marginTop="8dp"
+                       android:layout_marginEnd="8dp"
+                       android:layout_marginBottom="8dp"
+                       android:background="@color/white"
+                       android:contentDescription="btn logout"
+                       android:minWidth="48dp"
+                       android:minHeight="48dp"
+                       android:src="@drawable/ic_language"
+                       app:tint="@color/black" />
+               </RelativeLayout>
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="@color/white"
-            android:contentDescription="btn logout"
-            android:minWidth="48dp"
-            android:minHeight="48dp"
-            android:src="@drawable/ic_language"
-            app:tint="@color/black" />
-    </RelativeLayout>
+               <RelativeLayout
+                   android:id="@+id/logout"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:background="@color/white"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   >
 
-    <RelativeLayout
-        android:id="@+id/logoutLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        >
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_alignParentStart="true"
+                       android:layout_centerVertical="true"
+                       android:layout_marginStart="20dp"
+                       android:layout_marginTop="12dp"
+                       android:layout_marginEnd="20dp"
+                       android:layout_marginBottom="12dp"
+                       android:fontFamily="@font/poppins_medium"
+                       android:text="logout"
+                       android:textColor="#9A9A9A"
+                       android:textSize="18sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="logout"
-            android:textColor="#9A9A9A"
-            android:textSize="18sp" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="@color/white"
-            android:contentDescription="btn logout"
-            android:minWidth="48dp"
-            android:minHeight="48dp"
-            android:src="@drawable/ic_logout"
-            app:tint="@color/black" />
-    </RelativeLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+                   <ImageButton
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_alignParentEnd="true"
+                       android:layout_centerVertical="true"
+                       android:layout_marginStart="8dp"
+                       android:layout_marginTop="8dp"
+                       android:layout_marginEnd="8dp"
+                       android:layout_marginBottom="8dp"
+                       android:background="@color/white"
+                       android:contentDescription="btn logout"
+                       android:minWidth="48dp"
+                       android:minHeight="48dp"
+                       android:src="@drawable/ic_logout"
+                       app:tint="@color/black" />
+               </RelativeLayout>
+           </LinearLayout>
+       </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

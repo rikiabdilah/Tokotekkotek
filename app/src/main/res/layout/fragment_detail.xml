@@ -4,6 +4,9 @@
         <variable
             name="detailProduct"
             type="com.example.tokotekkotek.model.ResponseDataProductItem" />
+        <variable
+            name="fragmentDetail"
+            type="com.example.tokotekkotek.view.fragment.DetailFragment" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -39,7 +42,7 @@
                         android:id="@+id/tvPriceProduct"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{String.valueOf(detailProduct.price)}"
+                        android:text="@{fragmentDetail.convertToRupiah(detailProduct.price)}"
                         android:fontFamily="@font/poppins_semibold"
                         android:textSize="24sp"
                         android:textColor="@color/black"
@@ -101,7 +104,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="4dp"
                     android:background="#F0F0F0"
-                    android:layout_marginTop="8dp"/>
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="24dp"/>
             </LinearLayout>
         </ScrollView>
         <LinearLayout
@@ -114,27 +118,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent">
             <Button
-                android:id="@+id/btnBuyNow"
+                android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="buy now"
-                android:textSize="16sp"
-                android:backgroundTint="@color/white"
-                android:fontFamily="@font/poppins_medium"
-                android:textColor="#5CFF6D"
-                android:layout_margin="8dp"
-                app:strokeColor = "#5CFF6D"
-                app:layout_constraintBottom_toTopOf="@id/bottomLayout"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginBottom="8dp"
-                style="@style/Widget.Material3.Button.OutlinedButton"/>
-            <Button
-                android:id="@+id/btnAddToCart"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="add to cart"
+                android:text="login"
                 android:textSize="16sp"
                 android:backgroundTint="#5CFF6D"
                 android:fontFamily="@font/poppins_medium"
@@ -144,6 +132,44 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginBottom="8dp"
                 style="@style/Widget.Material3.Button.ElevatedButton"/>
+            <LinearLayout
+                android:id="@+id/btnDetailsProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+                <Button
+                    android:id="@+id/btnBuyNow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="buy now"
+                    android:textSize="16sp"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="#5CFF6D"
+                    android:layout_margin="8dp"
+                    app:strokeColor = "#5CFF6D"
+                    app:layout_constraintBottom_toTopOf="@id/bottomLayout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginBottom="8dp"
+                    style="@style/Widget.Material3.Button.OutlinedButton"/>
+                <Button
+                    android:id="@+id/btnAddToCart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="add to cart"
+                    android:textSize="16sp"
+                    android:backgroundTint="#5CFF6D"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="@color/white"
+                    android:layout_margin="8dp"
+                    app:layout_constraintBottom_toTopOf="@id/bottomLayout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginBottom="8dp"
+                    style="@style/Widget.Material3.Button.ElevatedButton"/>
+            </LinearLayout>
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

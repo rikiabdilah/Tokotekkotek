@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.tokotekkotek.R
@@ -70,7 +71,12 @@ class LoginFragment : Fragment() {
                             }
                             Log.i("USER_ID_BEFORE", idUser.toString())
 
-                            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                            //adding observer
+                            userPreferences.idUser.asLiveData().observe(viewLifecycleOwner){ id->
+                                if(id != 0){
+                                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                                }
+                            }
                         }
                     }else{
                         Toast.makeText(context, "Login fail $email & $password", Toast.LENGTH_SHORT).show()

@@ -20,6 +20,9 @@ class UserViewModel @Inject constructor(private val networkRepository: NetworkRe
     private val _usersRegist = MutableLiveData<ResponseDataUserItem?>()
     val usersRegist: LiveData<ResponseDataUserItem?> = _usersRegist
 
+    private val _detailUser = MutableLiveData<ResponseDataUserItem?>()
+    val detailUser : LiveData<ResponseDataUserItem?> = _detailUser
+
     fun getDataAllUsers() = viewModelScope.launch(Dispatchers.IO){
         val response = networkRepository.getDataUsers()
         viewModelScope.launch(Dispatchers.Main){
@@ -36,6 +39,17 @@ class UserViewModel @Inject constructor(private val networkRepository: NetworkRe
                 _usersRegist.postValue(response)
             }else{
                 _usersRegist.postValue(null)
+            }
+        }
+    }
+
+    fun getDataDetailUser(id : Int) = viewModelScope.launch(Dispatchers.IO){
+        val response = networkRepository.getDataDetailUser(id)
+        viewModelScope.launch(Dispatchers.Main){
+            if(response.toString().isNotEmpty()){
+                _detailUser.postValue(response)
+            }else{
+                _detailUser.postValue(null)
             }
         }
     }

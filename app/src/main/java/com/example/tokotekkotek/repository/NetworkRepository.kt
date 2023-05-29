@@ -17,6 +17,12 @@ interface NetworkRepository {
         data : DataUserRegist
     ) : ResponseDataUserItem
 
+    suspend fun getDataDetailUser(
+        id : Int
+    ) : ResponseDataUserItem
+    suspend fun getAllHistoryTransaction(
+        idUser : Int
+    ) : List<ResponseUserTransHistoryItem>
     //cart
     suspend fun getDataCart(
         id : Int
@@ -51,6 +57,10 @@ class NetworkRepositoryImpl @Inject constructor(private val api : RestfulApi) : 
     override suspend fun getDataUsers(): List<ResponseDataUserItem> = api.getDataUsers()
     override suspend fun loginUser(email: String, password: String): List<ResponseDataUserItem> = api.loginUser(email, password)
     override suspend fun registUser(data: DataUserRegist): ResponseDataUserItem = api.registerUser(data)
+    override suspend fun getDataDetailUser(id: Int): ResponseDataUserItem = api.getDetailUser(id)
+
+    override suspend fun getAllHistoryTransaction(idUser: Int): List<ResponseUserTransHistoryItem> = api.getDataHistoryTransaction(idUser)
+
     override suspend fun getDataCart(id: Int): List<ResponseDataCartItem> = api.getDataCart(id)
     override suspend fun getDataFavourite(id: Int): List<ResponseDataFavouriteItem> = api.getDataFavourite(id)
 

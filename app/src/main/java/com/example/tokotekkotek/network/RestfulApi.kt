@@ -14,6 +14,11 @@ interface RestfulApi {
         @Body data : ResponseDataUserItem
     ) : ResponseDataUserItem
 
+    @GET("users/{id}")
+    suspend fun getDetailUser(
+        @Path("id") id : Int,
+    ) : ResponseDataUserItem
+
     @GET("users")
     suspend fun loginUser(
         @Query("email") email : String,
@@ -29,12 +34,12 @@ interface RestfulApi {
     @GET("users/{id}/transhistory")
     suspend fun getDataHistoryTransaction(
         @Path("id") id : Int,
-        @Body data : ResponseUserTransHistoryItem
-    ) : Response<ResponseUserTransHistoryItem>
+    ) : List<ResponseUserTransHistoryItem>
 
     @POST("users/{id}/transhistory")
     suspend fun insertDataHistoryTransaction(
-        @Path("id") id : Int
+        @Path("id") id : Int,
+        @Body data : ResponseUserTransHistoryItem
     ) : ResponseUserTransHistoryItem
 
     //endpoint cart
